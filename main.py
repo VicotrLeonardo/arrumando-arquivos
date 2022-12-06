@@ -11,7 +11,7 @@ def pegar_extensao(nomeArquivo):
     index = nomeArquivo.rfind('.')
     return nomeArquivo[index:]
 
-    
+
 def organizar(diretorio):
     AUDIO_DIR = os.path.join(diretorio, "audios")
     IMAGENS_DIR = os.path.join(diretorio, "imagens")
@@ -24,14 +24,13 @@ def organizar(diretorio):
 
     for dir in list_dirs:
         if not os.path.isdir(dir):
-             os.mkdir(dir)   
+             os.mkdir(dir)
 
     nomes_arquivos = os.listdir(diretorio)
     print(nomes_arquivos)
     nova_pasta = ''
     for arquivo in nomes_arquivos:
         if os.path.isfile(os.path.join(diretorio, arquivo)):
-            #transformar a ext em minúsculo
             extensao = str.lower(pegar_extensao(arquivo))
             if extensao in audios:
                 nova_pasta = AUDIO_DIR
@@ -40,7 +39,7 @@ def organizar(diretorio):
             elif extensao in imagens:
                 nova_pasta = IMAGENS_DIR
             elif extensao in documentos:
-                nova_pasta = DOCUMENTOS_DIR    
+                nova_pasta = DOCUMENTOS_DIR
             elif extensao in winrar:
                 nova_pasta = WINRAR_DIR
             else:
@@ -51,4 +50,4 @@ def organizar(diretorio):
             os.rename(velhoCaminho, novoCaminho)
 
 
-organizar(r"C:\Users\victo\Downloads")
+organizar(r"/Users/novodono/downloads")
